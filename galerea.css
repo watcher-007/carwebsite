@@ -1,0 +1,261 @@
+body{
+    background:rgba(0, 0, 0, 0.5)url(images/sad.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+
+}
+ul{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    float: right;
+
+}
+ul li{
+    display: inline-block;
+    font-size: 20px;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+}
+ul li a:hover{
+    background-color:red;
+    color: white;
+    transition:0.3s ease-in;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: normal;
+    position: relative;
+    margin: 40px 0;
+    color: white;
+    text-decoration:overline 4px red;
+}
+
+h1::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: red;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+
+h3{
+    font-size: 25px;
+    padding-left: 446px;
+    text-decoration: overline 4px red;
+    color: white;
+}
+
+h4{
+font-size: 20px;
+padding-left: 370px;
+color: white;
+margin-top: 240px;
+}
+
+.button{
+    display: inline-block;
+    font-size: 20px;
+}
+.button a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    background-color: transparent;
+    border: 1px solid white;
+}
+.button a:hover{
+    background-color:red;
+    color: white;
+    transition:0.3s ease-in;
+}
+
+.gallery{
+    margin: 10px 50px;
+}
+
+.gallery img{
+    width: 230px;
+    padding: 5px;
+    filter: grayscale(100%);
+    transition: 1s;
+}
+
+.gallery img:hover{
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.icons a{
+    text-decoration: none;
+    color: red;
+}
+
+.icons ion-icon{
+    color: white;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 5px;
+    transition: 0.3s ease-in;
+}
+
+.icons ion-icon:hover{
+    color: red;
+}
+
+input{
+    display: none;
+}
+
+.container{
+    width: 100%;
+    text-align: center;
+}
+
+.top-content{
+    background-color: transparent;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgb(255, 255, 255);
+}
+
+label{
+    display: inline-block;
+    height: 100%;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.5s ;
+}
+
+label:hover{
+    color: red;
+    box-shadow: 0px 4px 0px red;
+}
+
+.photo-gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.pic{
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgb(255, 0, 0);
+    cursor: pointer;
+}
+
+.pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+/* .pic::before{
+    content: "PHOTO GALLERY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    z-index: 1;
+} */
+
+/* .pic::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 0;
+    bottom: 0;
+    border-radius: 10px;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    transition: 0.3s;
+} */
+
+.pic:hover::after{
+    height: 100%;
+}
+
+.pic:hover::before{
+    margin-top: 0;
+    opacity: 1;
+}
+
+#check1:checked ~ .container .photo-gallery .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+}
+#check2:checked ~ .container .photo-gallery .infinity{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+#check2:checked ~ .container .photo-gallery .skyline,
+#check2:checked ~ .container .photo-gallery .videos{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+
+#check3:checked ~ .container .photo-gallery .skyline{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+#check3:checked ~ .container .photo-gallery .infinity,
+#check3:checked ~ .container .photo-gallery .videos{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+
+#check4:checked ~ .container .photo-gallery .videos{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+#check4:checked ~ .container .photo-gallery .skyline,
+#check4:checked ~ .container .photo-gallery .infinity{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
